@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 21, 2015 7:44:35 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="OrderItem" table="order_item" schema="public" optimistic-lock="version">
+        <id name="orderItem" type="big_decimal">
+            <column name="order_item" precision="30" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="order" type="big_decimal">
+            <column name="order_" precision="30" scale="0" />
+        </property>
+        <property name="item" type="big_decimal">
+            <column name="item" precision="30" scale="0" />
+        </property>
+        <property name="product" type="big_decimal">
+            <column name="product" precision="30" scale="0" />
+        </property>
+        <property name="itemCount" type="big_decimal">
+            <column name="item_count" precision="30" scale="0" />
+        </property>
+        <property name="itemPrice" type="big_decimal">
+            <column name="item_price" precision="30" scale="6" />
+        </property>
+        <property name="itemType" type="big_decimal">
+            <column name="item_type" precision="30" scale="0" />
+        </property>
+        <property name="itemAdded" type="timestamp">
+            <column name="item_added" length="29" />
+        </property>
+    </class>
+</hibernate-mapping>

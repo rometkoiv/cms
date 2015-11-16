@@ -1,0 +1,141 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+      xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	
+	
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		 http://www.springframework.org/schema/context/spring-context.xsd 
+		 http://www.springframework.org/schema/tx 
+		 http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd"
+        >
+ 
+ 
+ <mvc:annotation-driven>
+  
+      <mvc:message-converters register-defaults="false" >
+        <bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+        <property name="prefixJson" value="false"/>
+        <property name="supportedMediaTypes" value="application/json"/>
+        <property name="objectMapper" ref="objectMapper" />
+        </bean>
+       
+      </mvc:message-converters>
+     
+    </mvc:annotation-driven>
+        
+ <context:component-scan base-package="cms.controller" />
+      
+ <mvc:resources mapping="/static/**" location="/static/" />
+	<tx:annotation-driven transaction-manager="transactionManager" /> 
+    
+    <bean id="objectMapper" class="cms.backend.jax.HibernateAwareObjectMapper" />
+    
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+     <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
+   	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/WEB-INF/views/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+
+
+  <!-- Head teated -->
+   <bean class="org.springframework.context.support.ResourceBundleMessageSource"
+        id="messageSource">
+        <property name="basename" value="messages" />
+    </bean>
+
+   <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+   <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+   <property name="webBindingInitializer">
+        <bean class="org.springframework.web.bind.support.ConfigurableWebBindingInitializer">
+            <property name="conversionService" ref="conversionService"/>
+            <property name="validator" ref="validator"/>
+        </bean>
+    </property>
+   </bean> 
+   <bean class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean" id="entityManagerFactory">  
+   <property name="persistenceUnitName" value="cmspu"/>
+   <property name="jpaProperties">
+         <props>
+            <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
+            <prop key="hibernate.connection.driver_class">org.postgresql.Driver</prop>
+			<prop key="hibernate.connection.username">t120437</prop>
+			<prop key="hibernate.connection.password">jtmLjV4w</prop>
+            <prop key="hibernate.connection.charSet" >UTF-8</prop>
+			<prop key="hibernate.connection.url">jdbc:postgresql:120437_kliendid</prop>
+			<prop key="hibernate.show_sql">false</prop>
+			<prop key="hibernate.format_sql">false</prop>
+			<prop key="hibernate.connection.autocommit">false</prop>
+			
+         </props>
+      </property> 
+    </bean> 
+   
+   <bean class="org.springframework.orm.jpa.JpaTransactionManager" id="transactionManager">  
+   <property name="entityManagerFactory" ref="entityManagerFactory"/> 
+   
+    </bean> 
+   <!-- <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close"> -->
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+       <property name="driverClassName" value="org.postgresql.Driver" />
+        <property name="url" value="jdbc:postgresql://localhost/120437_kliendid" />
+        <property name="username" value="t120437" />
+        <property name="password" value="jtmLjV4w" />
+        <property name="initialSize" value="3" />
+       <property name="maxTotal" value = "5" />
+       <property name="maxIdle" value = "2" />
+    </bean>	
+    <!-- Date Time -->
+       <bean  id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean" />
+   
+   <!-- Omad klassid ja teenused--> 
+   <bean id="EmpUserDAO" class="cms.backend.dao.EmpUserDAOJPAImpl"></bean> 
+   <bean id="EmpUserService" class="cms.backend.service.EmpUserService"></bean>
+   <bean id="EmpUserTransactionalService" class="cms.backend.service.EmpUserTransactionalServiceImpl"></bean>
+   
+   <bean id="EmployeeDAO" class="cms.backend.dao.EmployeeDAOJPAImpl"></bean> 
+   <bean id="EmployeeService" class="cms.backend.service.EmployeeService"></bean>
+   <bean id="EmployeeTransactionalService" class="cms.backend.service.EmployeeTransactionalServiceImpl"></bean>
+   
+   <bean id="AccountManagerService" class="cms.backend.service.AccountManagerService"></bean>
+   
+   <bean id="CGroupDAO" class="cms.backend.dao.CGroupDAOJPAImpl"></bean> 
+   <bean id="CGroupService" class="cms.backend.service.CGroupService"></bean>
+   <bean id="CGroupTransactionalService" class="cms.backend.service.CGroupTransactionalServiceImpl"></bean>
+   
+   <bean id="CustomerGroupDAO" class="cms.backend.dao.CustomerGroupDAOJPAImpl"></bean> 
+   <bean id="CustomerGroupService" class="cms.backend.service.CustomerGroupService"></bean>
+   <bean id="CustomerGroupTransactionalService" class="cms.backend.service.CustomerGroupTransactionalServiceImpl"></bean>
+     
+   <bean id="CustomerDAO" class="cms.backend.dao.CustomerDAOJPAImpl"></bean> 
+   <bean id="CustomerService" class="cms.backend.service.CustomerService"></bean>
+   <bean id="CustomerTransactionalService" class="cms.backend.service.CustomerTransactionalServiceImpl"></bean> 
+   
+   <bean id="CstAddressDAO" class="cms.backend.dao.CstAddressDAOJPAImpl"></bean> 
+   <bean id="CstAddressService" class="cms.backend.service.CstAddressService"></bean>
+   <bean id="CstAddressTransactionalService" class="cms.backend.service.CstAddressTransactionalServiceImpl"></bean> 
+   
+   <bean id="CommDeviceTypeDAO" class="cms.backend.dao.CommDeviceTypeDAOJPAImpl"></bean> 
+   <bean id="CommDeviceTypeService" class="cms.backend.service.CommDeviceTypeService"></bean>
+   <bean id="CommDeviceTypeTransactionalService" class="cms.backend.service.CommDeviceTypeTransactionalServiceImpl"></bean> 
+   
+   <bean id="CommDeviceDAO" class="cms.backend.dao.CommDeviceDAOJPAImpl"></bean> 
+   <bean id="CommDeviceService" class="cms.backend.service.CommDeviceService"></bean>
+   <bean id="CommDeviceTransactionalService" class="cms.backend.service.CommDeviceTransactionalServiceImpl"></bean> 
+   
+   <bean id="CommDeviceAndTypeService" class="cms.backend.service.CommDeviceAndTypeService"></bean>
+   
+</beans>
+
+

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 21, 2015 7:44:35 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="ContractProperty" table="contract_property" schema="public" optimistic-lock="version">
+        <id name="contractProperty" type="big_decimal">
+            <column name="contract_property" precision="30" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="contract" type="big_decimal">
+            <column name="contract" precision="30" scale="0" />
+        </property>
+        <property name="property" type="big_decimal">
+            <column name="property" precision="30" scale="0" />
+        </property>
+        <property name="status" type="big_decimal">
+            <column name="status" precision="30" scale="0" />
+        </property>
+        <property name="note" type="string">
+            <column name="note" length="100" />
+        </property>
+        <property name="relationType" type="big_decimal">
+            <column name="relation_type" precision="30" scale="0" />
+        </property>
+        <property name="createdBy" type="big_decimal">
+            <column name="created_by" precision="30" scale="0" />
+        </property>
+        <property name="updatedBy" type="big_decimal">
+            <column name="updated_by" precision="30" scale="0" />
+        </property>
+        <property name="created" type="timestamp">
+            <column name="created" length="29" />
+        </property>
+        <property name="updated" type="timestamp">
+            <column name="updated" length="29" />
+        </property>
+    </class>
+</hibernate-mapping>

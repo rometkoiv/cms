@@ -1,0 +1,20 @@
+http://stackoverflow.com/questions/3686808/spring-3-requestmapping-get-path-value
+http://www.codejava.net/frameworks/spring/14-tips-for-writing-spring-mvc-controller#URLMapping
+http://www.springbyexample.org/examples/simple-spring-mvc-form-annotation-config-webapp-code-example.html
+
+
+http://www.mkyong.com/spring-mvc/spring-mvc-form-handling-annotation-example/
+
+http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html
+
+
+Võtsin ära
+
+${jacksonxml-version}
+
+
+<dependency>
+  <groupId>org.codehaus.jackson</groupId>
+  <artifactId>jackson-mapper-asl</artifactId>
+  <version>1.9.13</version>
+</dependency>

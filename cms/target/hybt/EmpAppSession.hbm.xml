@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 21, 2015 7:44:35 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="EmpAppSession" table="emp_app_session" schema="public" optimistic-lock="version">
+        <id name="empAppSession" type="big_decimal">
+            <column name="emp_app_session" precision="30" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="employee" type="big_decimal">
+            <column name="employee" precision="30" scale="0" />
+        </property>
+        <property name="empUser" type="big_decimal">
+            <column name="emp_user" precision="30" scale="0" />
+        </property>
+        <property name="sessionId" type="string">
+            <column name="session_id" length="200" />
+        </property>
+        <property name="sessionStart" type="timestamp">
+            <column name="session_start" length="29" />
+        </property>
+        <property name="sessionEnd" type="timestamp">
+            <column name="session_end" length="29" />
+        </property>
+        <property name="lastAction" type="timestamp">
+            <column name="last_action" length="29" />
+        </property>
+        <property name="appId" type="string">
+            <column name="app_id" length="10" />
+        </property>
+        <property name="statusType" type="big_decimal">
+            <column name="status_type" precision="30" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

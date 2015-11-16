@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 21, 2015 7:44:35 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="PaymPart" table="paym_part" schema="public" optimistic-lock="version">
+        <id name="paymPart" type="big_decimal">
+            <column name="paym_part" precision="30" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="paymGraph" type="big_decimal">
+            <column name="paym_graph" precision="30" scale="0" />
+        </property>
+        <property name="paymPartType" type="big_decimal">
+            <column name="paym_part_type" precision="30" scale="0" />
+        </property>
+        <property name="paymAmount" type="big_decimal">
+            <column name="paym_amount" precision="32" scale="16" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 21, 2015 7:44:35 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="ProductCatalogRelation" table="product_catalog_relation" schema="public" optimistic-lock="version">
+        <id name="productCatalogRelation" type="big_decimal">
+            <column name="product_catalog_relation" precision="30" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="upperCatalog" type="big_decimal">
+            <column name="upper_catalog" precision="30" scale="0" />
+        </property>
+        <property name="lowerCatalog" type="big_decimal">
+            <column name="lower_catalog" precision="30" scale="0" />
+        </property>
+        <property name="note" type="string">
+            <column name="note" length="100" />
+        </property>
+        <property name="relationType" type="big_decimal">
+            <column name="relation_type" precision="30" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

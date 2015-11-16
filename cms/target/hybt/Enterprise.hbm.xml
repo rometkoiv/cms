@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 21, 2015 7:44:35 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Enterprise" table="enterprise" schema="public" optimistic-lock="version">
+        <id name="enterprise" type="big_decimal">
+            <column name="enterprise" precision="30" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="entType" type="big_decimal">
+            <column name="ent_type" precision="30" scale="0" />
+        </property>
+        <property name="shortName" type="string">
+            <column name="short_name" length="100" />
+        </property>
+        <property name="longName" type="string">
+            <column name="long_name" length="100" />
+        </property>
+        <property name="identityCode" type="string">
+            <column name="identity_code" length="40" />
+        </property>
+        <property name="note" type="string">
+            <column name="note" length="1000" />
+        </property>
+        <property name="created" type="timestamp">
+            <column name="created" length="29" />
+        </property>
+        <property name="updated" type="timestamp">
+            <column name="updated" length="29" />
+        </property>
+        <property name="createdBy" type="big_decimal">
+            <column name="created_by" precision="30" scale="0" />
+        </property>
+        <property name="updatedBy" type="big_decimal">
+            <column name="updated_by" precision="30" scale="0" />
+        </property>
+        <property name="entStateType" type="big_decimal">
+            <column name="ent_state_type" precision="30" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

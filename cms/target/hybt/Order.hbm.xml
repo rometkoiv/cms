@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 21, 2015 7:44:35 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Order" table="order_" schema="public" optimistic-lock="version">
+        <id name="order" type="big_decimal">
+            <column name="order_" precision="30" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="orderStatusType" type="big_decimal">
+            <column name="order_status_type" precision="30" scale="0" />
+        </property>
+        <property name="orderStatusDate" type="timestamp">
+            <column name="order_status_date" length="29" />
+        </property>
+        <property name="EShopChart" type="big_decimal">
+            <column name="e_shop_chart" precision="30" scale="0" />
+        </property>
+        <property name="contract" type="big_decimal">
+            <column name="contract" precision="30" scale="0" />
+        </property>
+        <property name="customer" type="big_decimal">
+            <column name="customer" precision="30" scale="0" />
+        </property>
+        <property name="orderNumber" type="string">
+            <column name="order_number" length="20" />
+        </property>
+        <property name="note" type="string">
+            <column name="note" length="300" />
+        </property>
+        <property name="shippingAddress" type="big_decimal">
+            <column name="shipping_address" precision="30" scale="0" />
+        </property>
+        <property name="createdBy" type="big_decimal">
+            <column name="created_by" precision="30" scale="0" />
+        </property>
+        <property name="updatedBy" type="big_decimal">
+            <column name="updated_by" precision="30" scale="0" />
+        </property>
+        <property name="created" type="timestamp">
+            <column name="created" length="29" />
+        </property>
+        <property name="updated" type="timestamp">
+            <column name="updated" length="29" />
+        </property>
+        <property name="customerConfirmed" type="timestamp">
+            <column name="customer_confirmed" length="29" />
+        </property>
+        <property name="customerConfirmedBy" type="big_decimal">
+            <column name="customer_confirmed_by" precision="30" scale="0" />
+        </property>
+        <property name="payd" type="timestamp">
+            <column name="payd" length="29" />
+        </property>
+        <property name="shipped" type="timestamp">
+            <column name="shipped" length="29" />
+        </property>
+        <property name="confirmed" type="timestamp">
+            <column name="confirmed" length="29" />
+        </property>
+        <property name="confirmedBy" type="big_decimal">
+            <column name="confirmed_by" precision="30" scale="0" />
+        </property>
+        <property name="completed" type="timestamp">
+            <column name="completed" length="29" />
+        </property>
+        <property name="completedBy" type="big_decimal">
+            <column name="completed_by" precision="30" scale="0" />
+        </property>
+        <property name="orderType" type="big_decimal">
+            <column name="order_type" precision="30" scale="0" />
+        </property>
+        <property name="d1" type="timestamp">
+            <column name="d1" length="29" />
+        </property>
+        <property name="n1" type="big_decimal">
+            <column name="n1" precision="30" scale="0" />
+        </property>
+        <property name="a1" type="string">
+            <column name="a1" length="50" />
+        </property>
+        <property name="d2" type="timestamp">
+            <column name="d2" length="29" />
+        </property>
+        <property name="n2" type="big_decimal">
+            <column name="n2" precision="30" scale="0" />
+        </property>
+        <property name="a2" type="string">
+            <column name="a2" length="50" />
+        </property>
+        <property name="structUnit" type="big_decimal">
+            <column name="struct_unit" precision="30" scale="0" />
+        </property>
+        <property name="offer" type="big_decimal">
+            <column name="offer" precision="30" scale="0" />
+        </property>
+        <property name="project" type="big_decimal">
+            <column name="project" precision="30" scale="0" />
+        </property>
+        <property name="paymentType" type="big_decimal">
+            <column name="payment_type" precision="30" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

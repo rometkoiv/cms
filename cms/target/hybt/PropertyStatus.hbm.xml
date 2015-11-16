@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 21, 2015 7:44:35 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="PropertyStatus" table="property_status" schema="public" optimistic-lock="version">
+        <id name="propertyStatus" type="big_decimal">
+            <column name="property_status" precision="30" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="propertyStatusType" type="big_decimal">
+            <column name="property_status_type" precision="30" scale="0" />
+        </property>
+        <property name="property" type="big_decimal">
+            <column name="property" precision="30" scale="0" />
+        </property>
+        <property name="statusStart" type="timestamp">
+            <column name="status_start" length="29" />
+        </property>
+        <property name="statusEnd" type="timestamp">
+            <column name="status_end" length="29" />
+        </property>
+        <property name="prevStatus" type="big_decimal">
+            <column name="prev_status" precision="30" scale="0" />
+        </property>
+        <property name="createdBy" type="big_decimal">
+            <column name="created_by" precision="30" scale="0" />
+        </property>
+        <property name="created" type="timestamp">
+            <column name="created" length="29" />
+        </property>
+    </class>
+</hibernate-mapping>
